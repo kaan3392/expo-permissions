@@ -11,14 +11,17 @@
       "icon": "./assets/expo.icon",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "This app requires access to your photo library to let you select a profile picture.",
-        "NSCameraUsageDescription": "This app requires access to your camera to let you take a profile photo."
+        "NSCameraUsageDescription": "This app requires access to your camera to let you take a profile photo.",
+        "NSLocationWhenInUseUsageDescription": "This app requires access to your location to provide location-based features."
       }
     },
     "android": {
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
       ],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -49,6 +52,12 @@
         {
           "photosPermission": "Allow this app to access your photos to let you choose and upload a profile picture.",
           "cameraPermission": "Allow this app to access your camera so you can take a profile photo directly."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow this app to access your location to provide location-based features and personalized content."
         }
       ]
     ],
