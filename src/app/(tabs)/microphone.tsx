@@ -33,22 +33,11 @@ const Microphone = () => {
     try {
       await audioRecorder.stop();
       if (audioRecorder.uri) {
-        console.log("Kayıt tamamlandı, dosya yolu:", audioRecorder.uri);
+        console.log("Recording completed, file path:", audioRecorder.uri);
         player.replace(audioRecorder.uri);
       }
     } catch (err: any) {
-      Alert.alert(
-        "Hata",
-        "Kayıt durdurulurken bir hata oluştu: " + err.message,
-      );
-    }
-  };
-
-  const playSound = () => {
-    if (audioRecorder.uri) {
-      player.play();
-    } else {
-      Alert.alert("Hata", "Önce bir kayıt yapmalısınız.");
+      Alert.alert("Error", "Error stopping recording: " + err.message);
     }
   };
 
@@ -58,38 +47,26 @@ const Microphone = () => {
   };
 
   useEffect(() => {
-    (async () => {
+    const requestMicPermissions = async () => {
       const { granted, canAskAgain } =
         await AudioModule.requestRecordingPermissionsAsync();
 
-      if (!granted && canAskAgain) {
-        const permission = await AudioModule.requestRecordingPermissionsAsync();
+      if (granted) {
+        await setAudioModeAsync({
+          playsInSilentMode: true,
+          allowsRecording: true,
+        });
+        return;
+      }
 
-        if (!permission.granted) {
-          Alert.alert(
-            "Microphone Permission Required",
-            "Please enable microphone permissions in settings to use this feature.",
-            [
-              { text: "Cancel", style: "cancel" },
-              {
-                text: "Go to Settings",
-                onPress: () =>
-                  Platform.OS === "ios"
-                    ? Linking.openURL("app-settings:")
-                    : Linking.openSettings(),
-              },
-            ],
-          );
-          return;
-        }
-      } else if (!granted) {
+      if (!canAskAgain) {
         Alert.alert(
-          "Microphone Permission Required",
-          "Please enable microphone permissions in settings to use this feature.",
+          "Microphone Access Required",
+          "Microphone access is permanently disabled. Please enable it in your device settings to record audio.",
           [
             { text: "Cancel", style: "cancel" },
             {
-              text: "Go to Settings",
+              text: "Open Settings",
               onPress: () =>
                 Platform.OS === "ios"
                   ? Linking.openURL("app-settings:")
@@ -97,21 +74,16 @@ const Microphone = () => {
             },
           ],
         );
-        return;
       }
+    };
 
-      setAudioModeAsync({
-        playsInSilentMode: true,
-        allowsRecording: true,
-      });
-    })();
+    requestMicPermissions();
   }, []);
 
   return (
     <View style={styles.container}>
       <Text style={{ marginBottom: 20 }}>
-        Durum:{" "}
-        {recorderState.isRecording ? "🔴 Kaydediliyor..." : "⚪ Beklemede"}
+        State: {recorderState.isRecording ? "🔴 Recording..." : "⚪ Holding..."}
       </Text>
 
       <View
@@ -122,7 +94,7 @@ const Microphone = () => {
         onTouchStart={record}
         onTouchEnd={stopRecording}
       >
-        <Text style={styles.buttonText}>Basılı Tut ve Konuş</Text>
+        <Text style={styles.buttonText}>Hold and Speak</Text>
       </View>
 
       {audioRecorder.uri && !audioRecorder.isRecording && (
@@ -130,7 +102,7 @@ const Microphone = () => {
           style={[styles.button, { backgroundColor: "#4CD964" }]}
           onPress={() => (playerState.playing ? stopSound : player.play())}
         >
-          <Text style={styles.buttonText}>Son Kaydı Dinle ▶️</Text>
+          <Text style={styles.buttonText}>Listen to your record.. ▶️</Text>
         </TouchableOpacity>
       )}
     </View>

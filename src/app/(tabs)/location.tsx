@@ -1,4 +1,4 @@
-import * as Linking from "expo-linking"; // Ayarları açmak için gerekli
+import * as Linking from "expo-linking";
 import * as LocationExpo from "expo-location";
 import React, { useEffect, useRef, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
@@ -86,8 +86,8 @@ const Location = () => {
         {location && (
           <Marker
             coordinate={location}
-            title="Sizin Konumunuz"
-            description="Şu an buradasınız"
+            title="You are here"
+            description="Your current location"
           />
         )}
       </MapView>

@@ -3443,10 +3443,15 @@ expo-asset@~55.0.6:
     "@expo/image-utils" "^0.8.12"
     expo-constants "~55.0.6"
 
-expo-audio@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/expo-audio/-/expo-audio-1.1.1.tgz#7b9763118e321c5dfbf2771cd4a5b6790ce4fc8d"
-  integrity sha512-CPCpJ+0AEHdzWROc0f00Zh6e+irLSl2ALos/LPvxEeIcJw1APfBa4DuHPkL4CQCWsVe7EnUjFpdwpqsEUWcP0g==
+expo-audio@~55.0.7:
+  version "55.0.7"
+  resolved "https://registry.yarnpkg.com/expo-audio/-/expo-audio-55.0.7.tgz#d2e492f30ec548d5871e6e67d5d8fb5d61572b64"
+  integrity sha512-FG5/QnELv6jTfTc2u4LPvyr/IwzrUPU4oYcjx6UnjarznwBSIj8Mdn8kgMmkktdGjr0Idxwf0GnnjDBsZGxsgg==
+
+expo-calendar@^15.0.8:
+  version "15.0.8"
+  resolved "https://registry.yarnpkg.com/expo-calendar/-/expo-calendar-15.0.8.tgz#55b0b811cbf9285f9989340f26aa4bf5370f9c6b"
+  integrity sha512-i+ojy6zFnWSPb2DYp4L4W4U5iVI+NXnuHr3xysShoV8znNOmixP1TOYuJXt5Lpz+BpHCWseU31gV1E5SSkIKsw==
 
 expo-constants@~55.0.6:
   version "55.0.6"
@@ -3480,17 +3485,17 @@ expo-glass-effect@^55.0.6, expo-glass-effect@~55.0.6:
   resolved "https://registry.yarnpkg.com/expo-glass-effect/-/expo-glass-effect-55.0.6.tgz#7b7b590851b68b8693ea94dafd3810a6da6f95fc"
   integrity sha512-1WL6SWe+9p4nFnysCiGXvVwuOXx75pp8i0BfoJlg1PZ+b188+lomzlzGYvsQ64cvgZE8c+nimKNHDTTCK0GE0w==
 
-expo-image-loader@~6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-6.0.0.tgz#15230442cbb90e101c080a4c81e37d974e43e072"
-  integrity sha512-nKs/xnOGw6ACb4g26xceBD57FKLFkSwEUTDXEDF3Gtcu3MqF3ZIYd3YM+sSb1/z9AKV1dYT7rMSGVNgsveXLIQ==
+expo-image-loader@~55.0.0:
+  version "55.0.0"
+  resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-55.0.0.tgz#56ae6631a0f43191432296a1f7f1e9737e653cfe"
+  integrity sha512-NOjp56wDrfuA5aiNAybBIjqIn1IxKeGJ8CECWZncQ/GzjZfyTYAHTCyeApYkdKkMBLHINzI4BbTGSlbCa0fXXQ==
 
-expo-image-picker@^17.0.10:
-  version "17.0.10"
-  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-17.0.10.tgz#b4a714971378b2813e53d97d8ca81ab2c32cdf30"
-  integrity sha512-a2xrowp2trmvXyUWgX3O6Q2rZaa2C59AqivKI7+bm+wLvMfTEbZgldLX4rEJJhM8xtmEDTNU+lzjtObwzBRGaw==
+expo-image-picker@~55.0.8:
+  version "55.0.8"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-55.0.8.tgz#6041483b71d14c645b71ffb72df5549588bf4cd3"
+  integrity sha512-i6mNyCSR7k6EXWhNw57SW/l2hFYbPJjsiSxs4M2cI0uXG30WVH63PZ9ofM7/7AHF99IXMChzCX+pFWTm3FzMpg==
   dependencies:
-    expo-image-loader "~6.0.0"
+    expo-image-loader "~55.0.0"
 
 expo-image@^55.0.4, expo-image@~55.0.4:
   version "55.0.4"
@@ -3512,10 +3517,12 @@ expo-linking@~55.0.6:
     expo-constants "~55.0.6"
     invariant "^2.2.4"
 
-expo-location@^19.0.8:
-  version "19.0.8"
-  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-19.0.8.tgz#1805393151b1286021c1ad36246b6fd095d09b55"
-  integrity sha512-H/FI75VuJ1coodJbbMu82pf+Zjess8X8Xkiv9Bv58ZgPKS/2ztjC1YO1/XMcGz7+s9DrbLuMIw22dFuP4HqneA==
+expo-location@~55.1.1:
+  version "55.1.1"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-55.1.1.tgz#599bf0444c9ba1e3f2236b3795f1b38236f5a1fe"
+  integrity sha512-E3AQvqhJzWYdAWQX7bWjPFBUlltvM2GzgVFQoqkCyul1CVACh0WOOT+F4JLUybm1mZVsVka3kJV2eCxBu0s+gg==
+  dependencies:
+    "@expo/image-utils" "^0.8.12"
 
 expo-modules-autolinking@55.0.7:
   version "55.0.7"
@@ -5751,10 +5758,10 @@ react-native-is-edge-to-edge@1.2.1, react-native-is-edge-to-edge@^1.1.6, react-n
   resolved "https://registry.yarnpkg.com/react-native-is-edge-to-edge/-/react-native-is-edge-to-edge-1.2.1.tgz#64e10851abd9d176cbf2b40562f751622bde3358"
   integrity sha512-FLbPWl/MyYQWz+KwqOZsSyj2JmLKglHatd3xLZWskXOpRaio4LfEDEz8E/A6uD8QoTHW6Aobw1jbEwK7KMgR7Q==
 
-react-native-maps@^1.27.1:
-  version "1.27.1"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-1.27.1.tgz#399aafcc0dec367c2bf30d34141d411f50b0bbd0"
-  integrity sha512-wGMFwo7oy1MhRogLj203f193VeY1WD/wXaJKQP7pNRUzcExmqhD3wrQyE1aRneD4ffNO0VkaqCIdcToT0aI7AQ==
+react-native-maps@1.26.20:
+  version "1.26.20"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-1.26.20.tgz#697686c190679d58195941a11645c90aa1739534"
+  integrity sha512-kWibDz6wLLQ0685gOEFz5jdzm4miD7PMeVdtZV7ilgftDcusC2iy7SueBJpHF0LKCoOSa1BEUiKqpx1dBMSNpA==
   dependencies:
     "@types/geojson" "^7946.0.13"
 
