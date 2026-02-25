@@ -8,7 +8,7 @@ import {
   useAudioRecorderState,
 } from "expo-audio";
 import * as Linking from "expo-linking";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import {
   Alert,
   Platform,
@@ -24,7 +24,29 @@ const Microphone = () => {
 
   const player = useAudioPlayer();
   const playerState = useAudioPlayerStatus(player);
+
   const record = async () => {
+    const { granted, canAskAgain } =
+      await AudioModule.requestRecordingPermissionsAsync();
+
+    if (!granted && !canAskAgain) {
+      Alert.alert(
+        "Microphone Access Required",
+        "Microphone access is permanently disabled. Please enable it in your device settings to record audio.",
+        [
+          { text: "Cancel", style: "cancel" },
+          {
+            text: "Open Settings",
+            onPress: () =>
+              Platform.OS === "ios"
+                ? Linking.openURL("app-settings:")
+                : Linking.openSettings(),
+          },
+        ],
+      );
+      return;
+    }
+
     await audioRecorder.prepareToRecordAsync();
     audioRecorder.record();
   };
@@ -50,6 +72,12 @@ const Microphone = () => {
     const requestMicPermissions = async () => {
       const { granted, canAskAgain } =
         await AudioModule.requestRecordingPermissionsAsync();
+      console.log(
+        "Microphone permission granted:",
+        granted,
+        "Can ask again:",
+        canAskAgain,
+      );
 
       if (granted) {
         await setAudioModeAsync({
@@ -58,6 +86,12 @@ const Microphone = () => {
         });
         return;
       }
+      console.log(
+        "Microphone permission granted1:",
+        granted,
+        "Can ask again:",
+        canAskAgain,
+      );
 
       if (!canAskAgain) {
         Alert.alert(
@@ -75,6 +109,12 @@ const Microphone = () => {
           ],
         );
       }
+      console.log(
+        "Microphone permission granted2:",
+        granted,
+        "Can ask again:",
+        canAskAgain,
+      );
     };
 
     requestMicPermissions();

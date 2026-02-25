@@ -13,7 +13,9 @@
         "NSPhotoLibraryUsageDescription": "This app requires access to your photo library to let you select a profile picture.",
         "NSCameraUsageDescription": "This app requires access to your camera to let you take a profile photo.",
         "NSLocationWhenInUseUsageDescription": "This app requires access to your location to provide location-based features.",
-        "UIBackgroundModes": ["audio"],
+        "UIBackgroundModes": [
+          "audio"
+        ],
         "NSMicrophoneUsageDescription": "This app requires access to your microphone to let you record audio.",
         "NSCalendarsUsageDescription": "This app requires access to your calendar to let you create and manage events."
       },
@@ -82,11 +84,14 @@
         {
           "calendarPermission": "Allow this app to access your calendar to let you create and manage events."
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "@react-native-community/datetimepicker"
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": false
     }
   }
 }
