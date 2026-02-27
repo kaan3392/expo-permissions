@@ -13,27 +13,31 @@
         "NSPhotoLibraryUsageDescription": "This app requires access to your photo library to let you select a profile picture.",
         "NSCameraUsageDescription": "This app requires access to your camera to let you take a profile photo.",
         "NSLocationWhenInUseUsageDescription": "This app requires access to your location to provide location-based features.",
-        "UIBackgroundModes": [
-          "audio"
-        ],
+        "UIBackgroundModes": ["audio"],
         "NSMicrophoneUsageDescription": "This app requires access to your microphone to let you record audio.",
-        "NSCalendarsUsageDescription": "This app requires access to your calendar to let you create and manage events."
+        "NSCalendarsUsageDescription": "This app requires access to your calendar to let you create and manage events.",
+        "NSMotionUsageDescription": "This app requires access to your device motion to provide motion-based features.",
+        "NSActivityRecognitionUsageDescription": "This app requires access to your activity recognition to provide activity-based features.",
+        "NSSpeechRecognitionUsageDescription": "This app requires access to speech recognition to let you use voice commands and dictation features."
       },
       "bundleIdentifier": "com.knlcl.expopermissions"
     },
     "android": {
       "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.ACCESS_FINE_LOCATION",
-        "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-        "android.permission.FOREGROUND_SERVICE",
-        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
-        "android.permission.READ_CALENDAR",
-        "android.permission.WRITE_CALENDAR"
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "READ_CALENDAR",
+        "WRITE_CALENDAR",
+        "ACTIVITY_RECOGNITION",
+        "USE_SIP",
+        "BODY_SENSORS"
       ],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -83,6 +87,18 @@
         "expo-calendar",
         {
           "calendarPermission": "Allow this app to access your calendar to let you create and manage events."
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow $(PRODUCT_NAME) to access your device motion",
+          "activityRecognitionPermission": "Allow $(PRODUCT_NAME) to access your activity recognition",
+          "bodySensorsPermission": "Allow $(PRODUCT_NAME) to access your body sensors",
+          "pedometerPermission": "Allow $(PRODUCT_NAME) to access your pedometer data",
+          "gyroscopePermission": "Allow $(PRODUCT_NAME) to access your gyroscope data",
+          "accelerometerPermission": "Allow $(PRODUCT_NAME) to access your accelerometer data",
+          "magnetometerPermission": "Allow $(PRODUCT_NAME) to access your magnetometer data"
         }
       ],
       "expo-font",

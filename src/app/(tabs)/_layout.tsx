@@ -45,6 +45,16 @@ export default function TabsLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="pace"
+        options={{
+          title: "Pace",
+          headerTitle: "Pace Permissions",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="walk" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
