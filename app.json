@@ -18,26 +18,34 @@
         "NSCalendarsUsageDescription": "This app requires access to your calendar to let you create and manage events.",
         "NSMotionUsageDescription": "This app requires access to your device motion to provide motion-based features.",
         "NSActivityRecognitionUsageDescription": "This app requires access to your activity recognition to provide activity-based features.",
-        "NSSpeechRecognitionUsageDescription": "This app requires access to speech recognition to let you use voice commands and dictation features."
+        "NSSpeechRecognitionUsageDescription": "This app requires access to speech recognition to let you use voice commands and dictation features.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app requires access to your location to provide location-based features even when the app is in the background.",
+        "NSLocationAlwaysUsageDescription": "This app requires access to your location to provide location-based features even when the app is in the background.",
+        "NSLocationUsageDescription": "This app requires access to your location to provide location-based features.",
+        "NSNotificationsUsageDescription": "This app requires access to notifications to let you receive important updates and alerts."
       },
       "bundleIdentifier": "com.knlcl.expopermissions"
     },
     "android": {
       "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
-        "ACCESS_FINE_LOCATION",
-        "ACCESS_COARSE_LOCATION",
-        "RECORD_AUDIO",
-        "MODIFY_AUDIO_SETTINGS",
-        "FOREGROUND_SERVICE",
-        "FOREGROUND_SERVICE_MEDIA_PLAYBACK",
-        "READ_CALENDAR",
-        "WRITE_CALENDAR",
-        "ACTIVITY_RECOGNITION",
-        "USE_SIP",
-        "BODY_SENSORS"
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.READ_CALENDAR",
+        "android.permission.WRITE_CALENDAR",
+        "android.permission.ACTIVITY_RECOGNITION",
+        "android.permission.USE_SIP",
+        "android.permission.BODY_SENSORS",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.SCHEDULE_EXACT_ALARM"
       ],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -46,7 +54,13 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.knlcl.expopermissions"
+      "package": "com.knlcl.expopermissions",
+      "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD8R_GrRlYpM-oz7b8bfH6Mh11weBC8S0Q"
+        }
+      }
     },
     "web": {
       "output": "static",
@@ -74,9 +88,10 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Allow this app to access your location to provide location-based features and personalized content."
+          "locationAlwaysAndWhenInUsePermission": "Allow this app to access your location to provide location-based features and personalized content."
         }
       ],
+
       [
         "expo-audio",
         {
@@ -101,6 +116,15 @@
           "magnetometerPermission": "Allow $(PRODUCT_NAME) to access your magnetometer data"
         }
       ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#ffffff",
+          "defaultChannel": "default",
+          "enableBackgroundRemoteNotifications": false
+        }
+      ],
       "expo-font",
       "expo-web-browser",
       "@react-native-community/datetimepicker"
@@ -108,6 +132,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": false
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e737b550-fffd-4210-8298-55670aa23718"
+      }
+    },
+    "owner": "knlcl"
   }
 }
